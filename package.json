@@ -1,0 +1,36 @@
+{
+  "name": "productapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+  },
+  "dependencies": {
+    "env2": "^2.2.2",
+    "pg": "^7.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.10",
+    "supertest": "^3.4.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.0"
+  },
+  "scripts": {
+    "test": "tape ./test/test.js | tap-spec",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG6/productApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG6/productApp/issues"
+  },
+  "homepage": "https://github.com/FACG6/productApp#readme"
+}
