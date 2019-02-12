@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+</head>
+<body>
+    <div class="form">
+        <div class="headre">
+            <p>Add Products</p>
+            <button type="button" class="show">Show AllProducts</button>
+        </div>
+        <div class="product_add">
+            <form action="add_product" method="POST">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+                <label for="exp_date">Exp Date</label>
+                <input type="date" name="exp_date" id="exp_date">
+                <label for="pro_date">Pro Date</label>
+                <input type="date" name="pro_date" id="pro_date">
+                <label for="select">Campony</label>
+                <select class="select" id="select">
+                    <option value="">1</option>
+                </select>
+            </form>
+        </div>
+    </div>
+    <div class="result" id="result"></div>
+    <dialog class="msg" id="msg">
+        <p>done</p>
+    </dialog>
+</body>
+</html>
