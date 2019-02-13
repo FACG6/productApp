@@ -1,7 +1,7 @@
 const select = document.getElementById('select');
 const send = document.getElementById('send');
 const result = document.getElementById('result');
-// const company = document.getElementById('name');
+const show = document.getElementById('show');
 const createElements = (tag, name, value, parent, className) => {
   const newElement = document.createElement(tag);
   newElement.classList.add(className);
@@ -56,6 +56,24 @@ send.addEventListener('click', (e) => {
       createElements('p', 'The add faild :(', null, result, 'error');
     } else {
       createElements('p', 'The add sucsseful :)', null, result, 'done');
+    }
+  });
+});
+show.addEventListener('click', (e) => {
+  e.preventDefault();
+  deleteChild(result);
+  request('/getDataProduct', 'GET', null, (error, res) => {
+    if (error) {
+      createElements('p', 'request error', null, result, 'error');
+    } else {
+      const response = JSON.parse(res).data;
+      response.forEach((row) => {
+        const productDiv = createElements('div', '', null, result, 'product');
+        createElements('p', `Product Name : ${row.name}`, null, productDiv, 'product_name');
+        createElements('p', `Production Date : ${row.pro_date}`, null, productDiv, 'product_production');
+        createElements('p', `Expire Date : ${row.exp_date}`, null, productDiv, 'product_expire');
+        createElements('p', `Company Name : ${row.com_name}`, null, productDiv, 'company_name');
+      });
     }
   });
 });

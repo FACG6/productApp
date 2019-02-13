@@ -73,6 +73,17 @@ const handleAddData = (request, response) => {
     });
   });
 };
+const handelGetProduct = (response) => {
+  getData('product', (error, res) => {
+    if (error) {
+      response.writeHead(500, { 'content-type': 'text/html' });
+      response.end('<h1>server error</h1>');
+    } else {
+      response.writeHead(200, { 'content-type': 'application/json' });
+      response.end(JSON.stringify({ error: null, data: res }));
+    }
+  });
+};
 const handleNotFound = (response) => {
   response.writeHead(404, {
     'content-type': 'text/html',
@@ -85,4 +96,5 @@ module.exports = {
   handleAddData,
   handlePublicAssets,
   handelGetCampoany,
+  handelGetProduct,
 };
