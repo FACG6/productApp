@@ -2,6 +2,7 @@ const select = document.getElementById('select');
 const send = document.getElementById('send');
 const result = document.getElementById('result');
 const show = document.getElementById('show');
+const dialog = document.getElementById('msg');
 const createElements = (tag, name, value, parent, className) => {
   const newElement = document.createElement(tag);
   newElement.classList.add(className);
@@ -36,7 +37,7 @@ send.addEventListener('click', (e) => {
     createElements('p', 'full all field', null, result, 'error');
     return '';
   }
-  if (!(/^[a-zA-z0-9]+$/.test(nameProduct)) || /^[0-9]+$/.test(nameProduct)) {
+  if (!(/^([a-zA-z0-9]|\s)+$/.test(nameProduct)) || /^[0-9]+$/.test(nameProduct)) {
     createElements('p', 'Please ensure the name of product', null, result, 'error');
     return '';
   }
@@ -55,7 +56,15 @@ send.addEventListener('click', (e) => {
     if (error) {
       createElements('p', 'The add faild :(', null, result, 'error');
     } else {
-      createElements('p', 'The add sucsseful :)', null, result, 'done');
+      createElements('p', `Product Name : ${nameProduct}`, null, dialog, 'product_name');
+      createElements('p', `Production Date : ${proDate}`, null, dialog, 'product_production');
+      createElements('p', `Expire Date : ${expDate}`, null, dialog, 'product_expire');
+      createElements('p', `Company Name : ${select.value}`, null, dialog, 'company_name');
+      const close = createElements('button', 'close', null, dialog, 'close');
+      close.addEventListener('click', () => {
+        dialog.remove();
+      });
+      dialog.showModal();
     }
   });
 });
