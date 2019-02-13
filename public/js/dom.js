@@ -62,7 +62,8 @@ send.addEventListener('click', (e) => {
       createElements('p', `Company Name : ${select.value}`, null, dialog, 'company_name');
       const close = createElements('button', 'close', null, dialog, 'close');
       close.addEventListener('click', () => {
-        dialog.remove();
+        deleteChild(dialog);
+        dialog.close();
       });
       dialog.showModal();
     }
