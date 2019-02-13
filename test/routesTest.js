@@ -32,7 +32,7 @@ test('Test getDatProduct route', (t) => {
     .expect('content-type', /json/)
     .end((err, res) => {
       if (err) t.error(err);
-      t.deepEqual(typeof res, 'object', 'should return an object');
+      t.equal(typeof res, 'object', 'should return an object');
       t.end();
     });
 });
@@ -44,7 +44,7 @@ test('Test getDataCampany route', (t) => {
     .expect('content-type', /json/)
     .end((err, res) => {
       if (err) t.error(err);
-      t.deepEqual(typeof res, 'object', 'should return an object');
+      t.equal(typeof res, 'object', 'should return an object');
       t.end();
     });
 });
