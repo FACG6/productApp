@@ -1,21 +1,24 @@
 const {
   handleHomePage,
-  handlePublicAssets,
-  handleAddData,
-  handleGetData,
   handleNotFound,
+  handleAddData,
+  handlePublicAssets,
+  handelGetCampoany,
+  handelGetProduct,
 } = require('./handler');
 
 const router = (request, response) => {
   const endpoint = request.url;
   if (endpoint === '/') {
-    handleHomePage(request, response);
+    handleHomePage(response);
   } else if (endpoint.includes('/public/')) {
-    handlePublicAssets(request, response, endpoint);
+    handlePublicAssets(request, response);
   } else if (endpoint === '/addData') {
-    handleAddData(request, response, endpoint);
-  } else if (endpoint === '/getData') {
-    handleGetData(request, response, endpoint);
+    handleAddData(request, response);
+  } else if (endpoint === '/getDataProduct') {
+    handelGetProduct(response);
+  } else if (endpoint === '/getDataCampany') {
+    handelGetCampoany(response);
   } else {
     handleNotFound(request, response);
   }
