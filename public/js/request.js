@@ -7,7 +7,7 @@ const request = (url, method, value, cb) => {
         if (response.error) {
           cb(new TypeError(response.error));
         } else {
-          cb(null, JSON.parse(response.results));
+          cb(null, response.data);
         }
       } else {
         cb(new TypeError(response.error));
