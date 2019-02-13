@@ -22,6 +22,8 @@ we worked in pairs and follow this methodology:
 * Test each ready part of code when it's possible.
 * Styling our website.
 * Solve conflicts when founded.
+## Database schema
+![](public/img/schema.png)
 
 ## User experience
 * user will searchs or adds any product from listed companies, he/she can enters product name, production date, expiration date and select company, then press add button to add new product to our database
