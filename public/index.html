@@ -9,22 +9,22 @@
     <title>Products</title>
 </head>
 <body>
-    <div class="form">
+    <div class="main">
         <div class="headre">
-            <p>Add Products</p>
+            <p class="title">Add Products</p>
             <button type="button" class="show" id="show">Show AllProducts</button>
         </div>
         <div class="product_add">
-            <form action="add_product" method="POST">
-                <label for="name">Name</label>
+            <form action="add_product" method="POST" class="form">
+                <label for="name">Name :</label>
                 <input type="text" name="name" id="name">
-                <label for="pro_date">Production Date</label>
+                <label for="pro_date">Production Date :</label>
                 <input type="date" name="pro_date" id="pro_date">
-                <label for="exp_date">Expire Date</label>
+                <label for="exp_date">Expire Date :</label>
                 <input type="date" name="exp_date" id="exp_date">
-                <label for="select">Campony</label>
+                <label for="select">Campony :</label>
                 <select class="select" id="select">
-                    <option value=""></option>
+                    <option>Select Campony</option>
                 </select>
                 <input type="submit" value="Add Product" id="send">
             </form>
