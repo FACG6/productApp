@@ -6,80 +6,67 @@ const runDbBuild = require('../src/database/db_built');
 test('test get data from product table', (t) => {
   runDbBuild((err) => {
     if (err) t.error(err, 'Error');
-    const expected = [
-      {
-        name: 'brewed tea',
-        pro_date: '2018-07-13',
-        exp_date: '2019-12-31',
-        com_name: 'Cott',
-      },
-      {
-        name: 'specialty coffee',
-        pro_date: '2018-07-13',
-        exp_date: '2019-06-30',
-        com_name: 'Cott',
-      },
-      {
-        name: 'hot chocolate',
-        pro_date: '2018-02-01',
-        exp_date: '2019-08-01',
-        com_name: 'Cott',
-      },
-      {
-        name: 'air trade coffee',
-        pro_date: '2018-07-13',
-        exp_date: '2019-12-31',
-        com_name: 'Just Us!',
-      },
-      {
-        name: 'sugar',
-        pro_date: '2018-07-13',
-        exp_date: '2019-06-30',
-        com_name: 'Just Us!',
-      },
-      {
-        name: 'chocolate',
-        pro_date: '2018-02-01',
-        exp_date: '2019-08-01',
-        com_name: 'Just Us!',
-      },
-      {
-        name: 'Daiya Cheddar Style Shreds',
-        pro_date: '2018-07-13',
-        exp_date: '2019-12-31',
-        com_name: 'Daiya',
-      },
-      {
-        name: 'Daiya Mozzarella Style Shreds',
-        pro_date: '2018-07-13',
-        exp_date: '2019-06-30',
-        com_name: 'Daiya',
-      },
-      {
-        name: 'Daiya Pepper Jack Style Shreds',
-        pro_date: '2018-02-01',
-        exp_date: '2019-08-01',
-        com_name: 'Daiya',
-      },
-      {
-        name: 'Naya natural spring water',
-        pro_date: '2018-07-13',
-        exp_date: '2019-12-31',
-        com_name: 'Naya Waters',
-      },
-      {
-        name: 'Naya Zest',
-        pro_date: '2018-07-13',
-        exp_date: '2019-06-30',
-        com_name: 'Naya Waters',
-      },
-      {
-        name: 'Naya Mini',
-        pro_date: '2018-02-01',
-        exp_date: '2019-08-01',
-        com_name: 'Naya Waters',
-      },
-    ];
+    const expected = [{
+      name: 'Naya Mini',
+      pro_date: '2018-02-01',
+      exp_date: '2019-08-01',
+      com_name: 'Naya Waters',
+    }, {
+      name: 'Naya Zest',
+      pro_date: '2018-07-13',
+      exp_date: '2019-06-30',
+      com_name: 'Naya Waters',
+    }, {
+      name: 'Naya natural spring water',
+      pro_date: '2018-07-13',
+      exp_date: '2019-12-31',
+      com_name: 'Naya Waters',
+    }, {
+      name: 'Daiya Pepper Jack Style Shreds',
+      pro_date: '2018-02-01',
+      exp_date: '2019-08-01',
+      com_name: 'Daiya',
+    }, {
+      name: 'Daiya Mozzarella Style Shreds',
+      pro_date: '2018-07-13',
+      exp_date: '2019-06-30',
+      com_name: 'Daiya',
+    }, {
+      name: 'Daiya Cheddar Style Shreds',
+      pro_date: '2018-07-13',
+      exp_date: '2019-12-31',
+      com_name: 'Daiya',
+    }, {
+      name: 'chocolate',
+      pro_date: '2018-02-01',
+      exp_date: '2019-08-01',
+      com_name: 'Just Us!',
+    }, {
+      name: 'sugar',
+      pro_date: '2018-07-13',
+      exp_date: '2019-06-30',
+      com_name: 'Just Us!',
+    }, {
+      name: 'air trade coffee',
+      pro_date: '2018-07-13',
+      exp_date: '2019-12-31',
+      com_name: 'Just Us!',
+    }, {
+      name: 'hot chocolate',
+      pro_date: '2018-02-01',
+      exp_date: '2019-08-01',
+      com_name: 'Cott',
+    }, {
+      name: 'specialty coffee',
+      pro_date: '2018-07-13',
+      exp_date: '2019-06-30',
+      com_name: 'Cott',
+    }, {
+      name: 'brewed tea',
+      pro_date: '2018-07-13',
+      exp_date: '2019-12-31',
+      com_name: 'Cott',
+    }];
 
     getData('product', (err, result) => {
       if (err) t.error(err);
