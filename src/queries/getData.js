@@ -13,5 +13,4 @@ const getData = (tableName, cb) => {
     }
   });
 };
-
 module.exports = getData;
