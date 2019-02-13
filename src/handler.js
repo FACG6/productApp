@@ -72,8 +72,6 @@ const handleAddData = (request, response) => {
       }
     });
   });
-  // response.writeHead();
-  // response.end();
 };
 const handleNotFound = (response) => {
   response.writeHead(404, {
