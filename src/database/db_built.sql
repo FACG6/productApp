@@ -9,7 +9,7 @@ CREATE TABLE company (
 CREATE TABLE product (
     id SERIAL PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    pro_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    pro_date DATE NOT NULL,
     exp_date DATE NOT NULL,
     company_id INTEGER REFERENCES company(id)
 );
