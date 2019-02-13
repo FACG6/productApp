@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.title {
+  color: white;
+  font-size: 30px;
+}
+.show {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 80%;
+  cursor: pointer;
+  border-radius: 12px;
+  width: 35%;
+}
+#name,
+#pro_date,
+#exp_date,
+#select,
+#send {
+  height: 30px;
+}
+#send {
+  border-radius: 12px;
+  border: none;
+  background: #4caf50;
+  font-size: 20px;
+}
+.form {
+  width: 70%;
+  grid-template-columns: 90%;
+  grid-row-gap: 5%;
+  margin: 30px auto 0px auto;
+  display: grid;
+}
+.headre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background: black;
+}
+.main {
+  height: 500px;
+}
+.product {
+    border-bottom-style: solid;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+.result {
+  display: grid;
+  row-gap: 30px;
+  margin: auto;
+  width: 50%;
+}
+.error{
+    text-align: center;
+    font-size: 50px;
+}
+
+ @media screen and (min-width: 760px) {
+    .product{
+        font-size: 30px;
+    }
+  } 
