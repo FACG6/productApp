@@ -4,7 +4,7 @@ require('env2')('./config.env');
 
 let DB_URL = process.env.DATABASE_URL;
 if (process.env.NODE_ENV === 'test') {
-  DB_URL = process.env.TEST_DATABASE_URL;
+  DB_URL = process.env.HEROKU_POSTGRESQL_CHARCOAL_URL;
 }
 
 const params = url.parse(DB_URL);
