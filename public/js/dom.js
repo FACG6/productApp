@@ -38,7 +38,7 @@ send.addEventListener('click', (e) => {
   const expDate = document.getElementById('exp_date').value;
   deleteChild(result);
   if (!(nameProduct) || !(proDate) || !(expDate) || !(select.value)) {
-    createElements('p', 'full all field', null, result, 'error');
+    createElements('p', 'Fill all fields!', null, result, 'error');
     return '';
   }
   if (!(/^([a-zA-z0-9]|\s)+$/.test(nameProduct)) || /^[0-9]+$/.test(nameProduct)) {

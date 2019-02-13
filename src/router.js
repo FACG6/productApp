@@ -20,7 +20,7 @@ const router = (request, response) => {
   } else if (endpoint === '/getDataCampany') {
     handelGetCampoany(response);
   } else {
-    handleNotFound(request, response);
+    handleNotFound(response);
   }
 };
 
