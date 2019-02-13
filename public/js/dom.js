@@ -33,11 +33,15 @@ request('/getDataCampany', 'GET', null, (error, res) => {
 
 send.addEventListener('click', (e) => {
   e.preventDefault();
-  const nameProduct = document.getElementById('name').value.trim();
-  const proDate = document.getElementById('pro_date').value;
-  const expDate = document.getElementById('exp_date').value;
+  const name = document.getElementById('name');
+  const nameProduct = name.value.trim();
+  const dateP = document.getElementById('pro_date');
+  const proDate = dateP.value;
+  const dateEX = document.getElementById('exp_date');
+  const expDate = dateEX.value;
+  const selectValue = select.value;
   deleteChild(result);
-  if (!(nameProduct) || !(proDate) || !(expDate) || !(select.value)) {
+  if (!(nameProduct) || !(proDate) || !(expDate) || !(selectValue)) {
     createElements('p', 'Fill all fields!', null, result, 'error');
     return '';
   }
@@ -54,24 +58,29 @@ send.addEventListener('click', (e) => {
     name: nameProduct,
     production: proDate,
     expire: expDate,
-    compnyId: select.value,
+    compnyId: selectValue,
   };
   request('/addData', 'POST', JSON.stringify(data), (error, response) => {
+    deleteChild(dialog);
     if (error) {
       createElements('p', 'The add faild :(', null, result, 'error');
     } else {
+      const company = document.querySelector(`option[value="${  selectValue  }"]`).innerText;
       createElements('p', `Product Name : ${nameProduct}`, null, dialog, 'product_name');
       createElements('p', `Production Date : ${proDate}`, null, dialog, 'product_production');
       createElements('p', `Expire Date : ${expDate}`, null, dialog, 'product_expire');
-      createElements('p', `Company Name : ${select.value}`, null, dialog, 'company_name');
+      createElements('p', `Company Name : ${company}`, null, dialog, 'company_name');
       const close = createElements('button', 'close', null, dialog, 'close');
       close.addEventListener('click', () => {
-        deleteChild(dialog);
         dialog.close();
       });
       dialog.showModal();
     }
   });
+  name.value = '';
+  dateEX.value = '';
+  dateP.value = '';
+  select.value = '';
 });
 
 show.addEventListener('click', (e) => {
