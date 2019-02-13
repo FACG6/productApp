@@ -19,7 +19,6 @@ const handleHomePage = (response) => {
   });
 };
 const handlePublicAssets = (request, response) => {
-
   const endpoint = request.url;
   const extantion = path.extname(endpoint).substr(1);
   const filePath = endpoint.split('/');
@@ -43,16 +42,15 @@ const handlePublicAssets = (request, response) => {
       response.end(file);
     }
   });
-
 };
-const handelGetCampoany = (response)=>{
-  getData('company',(error,res)=>{
-    if(error){
-      response.writeHead(500,{'content-type':'text/html'});
-      response.end('<h1>server error</h1>')
-    }else{
-      response.writeHead(200,{'content-type':'application/json'});
-      response.end(JSON.stringify({error:null,data:res}));
+const handelGetCampoany = (response) => {
+  getData('company', (error, res) => {
+    if (error) {
+      response.writeHead(500, { 'content-type': 'text/html' });
+      response.end('<h1>server error</h1>');
+    } else {
+      response.writeHead(200, { 'content-type': 'application/json' });
+      response.end(JSON.stringify({ error: null, data: res }));
     }
   });
 };
@@ -77,6 +75,6 @@ module.exports = {
   handleHomePage,
   handleNotFound,
   // handleAddData,
-   handlePublicAssets,
-   handelGetCampoany,
+  handlePublicAssets,
+  handelGetCampoany,
 };
