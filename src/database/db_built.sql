@@ -13,6 +13,7 @@ CREATE TABLE product (
     exp_date DATE NOT NULL,
     company_id INTEGER REFERENCES company(id)
 );
+
 INSERT INTO company (name) VALUES
     ('Cott'),
     ('Just Us!'),
