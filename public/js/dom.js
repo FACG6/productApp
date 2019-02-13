@@ -3,6 +3,7 @@ const send = document.getElementById('send');
 const result = document.getElementById('result');
 const show = document.getElementById('show');
 const dialog = document.getElementById('msg');
+
 const createElements = (tag, name, value, parent, className) => {
   const newElement = document.createElement(tag);
   newElement.classList.add(className);
@@ -11,22 +12,25 @@ const createElements = (tag, name, value, parent, className) => {
   parent.appendChild(newElement);
   return newElement;
 };
+
 // for delete all child in specific div
 const deleteChild = (parent) => {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 };
+
 request('/getDataCampany', 'GET', null, (error, res) => {
   if (error) {
     createElements('p', 'request error', null, result, 'error');
   } else {
     const response = JSON.parse(res).data;
     response.forEach((row) => {
-      createElements('option', row.name, row.id, select, 'option_company');
+      createElements('option', getValue(row, 'name'), getValue(row, 'id'), select, 'option_company');
     });
   }
 });
+
 send.addEventListener('click', (e) => {
   e.preventDefault();
   const nameProduct = document.getElementById('name').value.trim();
@@ -69,6 +73,7 @@ send.addEventListener('click', (e) => {
     }
   });
 });
+
 show.addEventListener('click', (e) => {
   e.preventDefault();
   deleteChild(result);
@@ -79,10 +84,10 @@ show.addEventListener('click', (e) => {
       const response = JSON.parse(res).data;
       response.forEach((row) => {
         const productDiv = createElements('div', '', null, result, 'product');
-        createElements('p', `Product Name : ${row.name}`, null, productDiv, 'product_name');
-        createElements('p', `Production Date : ${row.pro_date}`, null, productDiv, 'product_production');
-        createElements('p', `Expire Date : ${row.exp_date}`, null, productDiv, 'product_expire');
-        createElements('p', `Company Name : ${row.com_name}`, null, productDiv, 'company_name');
+        createElements('p', `Product Name : ${getValue(row, 'name')}`, null, productDiv, 'product_name');
+        createElements('p', `Production Date : ${getValue(row, 'pro_date')}`, null, productDiv, 'product_production');
+        createElements('p', `Expire Date : ${getValue(row, 'exp_date')}`, null, productDiv, 'product_expire');
+        createElements('p', `Company Name : ${getValue(row, 'com_name')}`, null, productDiv, 'company_name');
       });
     }
   });

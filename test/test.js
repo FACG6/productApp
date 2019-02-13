@@ -68,8 +68,8 @@ test('test get data from product table', (t) => {
       com_name: 'Cott',
     }];
 
-    getData('product', (err, result) => {
-      if (err) t.error(err);
+    getData('product', (error, result) => {
+      if (error) t.error(error);
       t.equal(result.length, 12, 'got all data');
       t.deepEqual(result, expected, 'all data is ok');
       t.end();
