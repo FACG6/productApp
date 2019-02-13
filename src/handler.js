@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const getData = require('./queries/getData');
+const addData = require('./queries/addData');
 
 const handleHomePage = (response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html');
@@ -54,17 +55,26 @@ const handelGetCampoany = (response) => {
     }
   });
 };
-// const handleAddData = (request, response) => {
-//   let allData = '';
-//   request.on('data', (chunkData) => {
-//     allData += chunkData;
-//   });
-//   request.on('end', () => {
-
-//   });
-//   response.writeHead();
-//   response.end();
-// };
+const handleAddData = (request, response) => {
+  let allData = '';
+  request.on('data', (chunkData) => {
+    allData += chunkData;
+  });
+  request.on('end', () => {
+    const params = JSON.parse(allData);
+    addData(params.name, params.production, params.expire, params.compnyId, (error, res) => {
+      if (error) {
+        response.writeHead(500, { 'content-type': 'text/html' });
+        response.end('<h1>server error</h1>');
+      } else {
+        response.writeHead(302, { Location: '/' });
+        response.end();
+      }
+    });
+  });
+  // response.writeHead();
+  // response.end();
+};
 const handleNotFound = (response) => {
   response.writeHead(404, {
     'content-type': 'text/html',
@@ -74,7 +84,7 @@ const handleNotFound = (response) => {
 module.exports = {
   handleHomePage,
   handleNotFound,
-  // handleAddData,
+  handleAddData,
   handlePublicAssets,
   handelGetCampoany,
 };

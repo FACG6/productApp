@@ -1,7 +1,7 @@
 const {
   handleHomePage,
   handleNotFound,
-  // handleAddData,
+  handleAddData,
   handlePublicAssets,
   handelGetCampoany,
 } = require('./handler');
