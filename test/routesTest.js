@@ -7,8 +7,9 @@ test('Home route returns a status code of 200', (t) => {
     .get('/')
     .expect(200)
     .expect('content-type', /html/)
-    .end((err) => {
+    .end((err,res) => {
       if (err) t.error(err);
+      t.equal(res.text.includes('Products'),true,'the title must Product')
       t.end();
     });
 });
@@ -20,7 +21,7 @@ test('Undefined routes', (t) => {
     .expect('content-type', /html/)
     .end((err, res) => {
       if (err) t.error(err);
-      t.equal(typeof (res), 'object', 'should retun html file');
+      t.equal(res.text.includes('Page Not Found'), true, 'should retun html file');
       t.end();
     });
 });
