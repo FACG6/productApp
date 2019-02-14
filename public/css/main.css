@@ -3,11 +3,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .title {
   color: white;
   font-size: 30px;
 }
-.show,.close {
+
+.show,
+.close {
   background-color: #4caf50;
   border: none;
   color: white;
@@ -17,6 +20,11 @@
   width: 35%;
   outline: none;
 }
+
+.close {
+  float: right;
+}
+
 #name,
 #pro_date,
 #exp_date,
@@ -25,6 +33,7 @@
   height: 30px;
   outline: none;
 }
+
 #send {
   border-radius: 12px;
   border: none;
@@ -32,9 +41,11 @@
   font-size: 20px;
   cursor: pointer;
 }
-#show{
+
+#show {
   height: 40px;
 }
+
 .form {
   width: 70%;
   grid-template-columns: 90%;
@@ -42,6 +53,7 @@
   margin: 30px auto 0px auto;
   display: grid;
 }
+
 .headre {
   display: flex;
   justify-content: space-around;
@@ -49,31 +61,44 @@
   height: 50px;
   background: black;
 }
+
 .main {
   height: 500px;
 }
+
 .product {
   border-bottom-style: solid;
   padding-bottom: 20px;
   font-size: 20px;
 }
+
 .result {
   display: grid;
   row-gap: 30px;
   margin: auto;
   width: 50%;
 }
+
 .error {
   text-align: center;
   font-size: 50px;
+  color: red;
 }
+
+.msg_add {
+  color: green;
+  text-align: center;
+}
+
 .msg {
   margin: auto;
   width: 300px;
   padding: 20px;
   font-size: 20px;
   line-height: 30px;
-  height: 180px;
+  height: 205px;
+  border-radius: 7px;
+  border: 1px solid #80808087;
 }
 
 @media screen and (min-width: 760px) {
