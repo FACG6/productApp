@@ -66,6 +66,7 @@ send.addEventListener('click', (e) => {
       createElements('p', 'The add faild :(', null, result, 'error');
     } else {
       const company = document.querySelector(`option[value="${  selectValue  }"]`).innerText;
+      createElements('p', 'Add Success :) ', null, dialog, 'msg_add');
       createElements('p', `Product Name : ${nameProduct}`, null, dialog, 'product_name');
       createElements('p', `Production Date : ${proDate}`, null, dialog, 'product_production');
       createElements('p', `Expire Date : ${expDate}`, null, dialog, 'product_expire');
